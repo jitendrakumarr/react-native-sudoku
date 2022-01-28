@@ -12,8 +12,10 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
+      - installLibraries
       - node/installLibraries:
           -run: sudo npm install --global yarn
+      - RunYarn
       - node/RunYarn:
           -run: yarn
           version: '16.10'
